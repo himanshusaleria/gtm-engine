@@ -12,7 +12,7 @@ Get your GTM Engine running in ~15 minutes.
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-username/gtm-engine.git
+git clone https://github.com/himanshusaleria/gtm-engine.git
 cd gtm-engine
 
 # Run the setup wizard

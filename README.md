@@ -17,14 +17,45 @@ Built for founders who are doing sales themselves for the first time.
 ## Quick Start
 
 ```bash
-git clone https://github.com/your-username/gtm-engine.git
+git clone https://github.com/himanshusaleria/gtm-engine.git
 cd gtm-engine
+```
 
-# In Claude Code:
+### Install Skills
+
+Skills live in this repo's `skills/` directory, but Claude Code reads them from `~/.claude/skills/`. You need to copy them over:
+
+```bash
+# Copy all skills to Claude Code's skill directory
+cp -r skills/setup ~/.claude/skills/setup
+cp -r skills/whats-new ~/.claude/skills/whats-new
+cp -r skills/good-morning ~/.claude/skills/good-morning
+cp -r skills/good-night ~/.claude/skills/good-night
+cp -r skills/analyse-call ~/.claude/skills/analyse-call
+cp -r skills/validate-lead ~/.claude/skills/validate-lead
+cp -r skills/cold-email ~/.claude/skills/cold-email
+cp -r skills/fathom-calls ~/.claude/skills/fathom-calls
+```
+
+Or copy them all at once:
+
+```bash
+for skill in skills/*/; do
+  cp -r "$skill" ~/.claude/skills/"$(basename "$skill")"
+done
+```
+
+### Run Setup
+
+Open Claude Code in the `gtm-engine/` directory and run:
+
+```
 /setup
 ```
 
 The setup wizard walks you through everything in ~15 minutes. [Full setup guide →](docs/setup-guide.md)
+
+> **Note:** The `/setup` wizard also handles skill installation for you. The manual copy above is only needed if you want to use individual skills before running the full setup.
 
 ## Skills
 
