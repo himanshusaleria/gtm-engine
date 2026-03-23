@@ -19,7 +19,7 @@ Reads a call transcript, identifies participants and deal context, then runs all
 
 - At least one framework file in `frameworks/`
 - `config/config.yaml` with Linear and team settings
-- A saved call transcript (import via `/fathom-calls` or add manually to `my-context/call-transcripts/`)
+- A saved call transcript (import via `/sync-calls` or add manually to `my-context/call-transcripts/`)
 
 ## What the Analysis Covers
 

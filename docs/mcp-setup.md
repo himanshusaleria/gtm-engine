@@ -1,6 +1,6 @@
 # MCP Server Setup
 
-MCP (Model Context Protocol) servers let Claude Code interact with your external tools — Linear, Google Workspace, Fathom, etc.
+MCP (Model Context Protocol) servers let Claude Code interact with your external tools — Linear, Google Workspace, etc.
 
 ## Required: Linear MCP
 
@@ -61,24 +61,37 @@ Powers calendar briefings, email drafting, sheet-based lead tracking, and docume
 | Email drafting | `/cold-email` (post to Gmail draft) | Manual copy-paste only |
 | EOD message | `/good-night` | Manual copy-paste only |
 
-## Optional: Fathom Integration
+## Optional: Call Recording Integration
 
-If you use Fathom for call recording, you can auto-sync transcripts.
+If you use a call recording tool (Fathom, Fireflies, Otter, Grain, etc.), you can sync or import transcripts.
 
 ### Setup
 
-1. Get your Fathom API key from [fathom.video/settings](https://fathom.video/settings)
+The `/setup` wizard will ask which call recording tool you use and configure it automatically.
+
+**For API-based providers (Fathom, Fireflies):**
+
+1. Get your API key:
+   - **Fathom:** [fathom.video/settings](https://fathom.video/settings) > Integrations > API
+   - **Fireflies:** Fireflies Settings > Integrations > API
 2. Add to your `.env` file:
    ```
+   # Use the appropriate key for your provider:
    FATHOM_API_KEY=your-api-key-here
+   # or
+   FIREFLIES_API_KEY=your-api-key-here
    ```
-3. Set `integrations.fathom.enabled: true` in `config/config.yaml`
+3. Set `integrations.call_recording.enabled: true` and `integrations.call_recording.provider: "fathom"` (or `"fireflies"`) in `config/config.yaml`
+
+**For manual providers (Otter, Grain, etc.):**
+
+No API key needed. Set the provider in config and use `/sync-calls` to paste or drop transcript files.
 
 ### What It Powers
 
 | Feature | Skill |
 |---------|-------|
-| Call transcript sync | `/fathom-calls` |
+| Call transcript sync | `/sync-calls` |
 | Auto-import in evening routine | `/good-night` (Step 2) |
 
 ## Verifying Installation
@@ -94,8 +107,8 @@ After installing MCP servers, verify they work:
 # Google Workspace — should show today's calendar
 "What's on my calendar today?"
 
-# Fathom — test API key
-"Fetch my recent Fathom calls"
+# Call recording — test sync
+"Sync my recent calls"
 ```
 
 ## Troubleshooting
@@ -108,7 +121,7 @@ After installing MCP servers, verify they work:
 ### Authentication issues
 - Linear: Re-authenticate by running the MCP command again
 - Google Workspace: Clear and re-authenticate with `/mcp` commands
-- Fathom: Verify API key is correct in `.env`
+- Call recording: Verify API key is correct in `.env` (for API-based providers)
 
 ### Missing permissions
 - Linear: Ensure your account has access to both teams

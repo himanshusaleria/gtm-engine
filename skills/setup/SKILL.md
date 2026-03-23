@@ -48,9 +48,9 @@ Then ask these questions one at a time, waiting for each answer:
    - If they say something else -> explain Linear is required, link to https://linear.app, ask them to set it up first
    - Store: `linear_confirmed = true`
 
-2. "Do you use **Fathom** (or another call recording tool) for sales calls?"
-   - If Fathom -> `fathom_enabled = true`
-   - If other tool or none -> `fathom_enabled = false`
+2. "Do you use a **call recording tool** for sales calls? (e.g., Fathom, Fireflies, Otter, Grain, or something else)"
+   - If they name a tool -> `call_recording_enabled = true`, `call_recording_provider = "{tool_name_lowercase}"` (e.g., "fathom", "fireflies", "otter", "grain")
+   - If none -> `call_recording_enabled = false`
 
 3. "Do you use **Google Workspace** (Gmail, Google Calendar, Google Sheets)?"
    - If yes -> `google_workspace_enabled = true`
@@ -100,13 +100,20 @@ Say: "The Google Workspace MCP server connects Gmail, Calendar, Sheets, and Docs
    - If it works -> "Google Workspace MCP is connected!"
    - If it fails -> Guide installation, referencing docs/mcp-setup.md
 
-**If Fathom enabled:**
+**If call recording enabled (API-based provider — fathom, fireflies):**
 
-Say: "Fathom integration uses an API key stored in your .env file."
+Say: "Your call recording tool ({provider}) uses an API key stored in your .env file."
 
 1. Check if `.env` file exists in the repo root
-2. If not, tell user to create it with `FATHOM_API_KEY=your-key-here`
-3. Explain: "Get your API key from Fathom Settings -> Integrations -> API"
+2. Determine the env var name based on provider:
+   - Fathom -> `FATHOM_API_KEY` (get from Fathom Settings -> Integrations -> API)
+   - Fireflies -> `FIREFLIES_API_KEY` (get from Fireflies Settings -> Integrations -> API)
+3. If `.env` doesn't exist or doesn't contain the key, tell user to add it: `{ENV_VAR_NAME}=your-key-here`
+4. Explain where to find the API key for their specific provider
+
+**If call recording enabled (manual provider — otter, grain, etc.):**
+
+Say: "{provider} doesn't require an API key. You can import transcripts manually using `/sync-calls` — it will prompt you to paste or drop transcript files."
 
 ---
 
@@ -313,7 +320,7 @@ Read `config/config.example.yaml` as the schema reference. Generate `config/conf
 - Company section: name, product, website, one_liner, stage
 - Team section: all team members with name, role, linear_user_id, is_default_assignee
 - Linear section: pipeline_team, action_team, default_label, pipeline_stages (use defaults), canceled_spelling
-- Integrations section: google_workspace.enabled, fathom.enabled, outreach_sheet.enabled + spreadsheet_id
+- Integrations section: google_workspace.enabled, call_recording.enabled + provider + api_key_env, outreach_sheet.enabled + spreadsheet_id
 - ICP section: scoring_criteria (from Step 4 or defaults), no_go_rules, tiers
 - Content section: creator_name, platforms, audience, voice_notes
 - Ritual section: use defaults from config.example.yaml, set cohort.enabled = false
@@ -380,7 +387,7 @@ Copy skill SKILL.md files from `skills/` to `~/.claude/skills/`:
    - Copy the SKILL.md file there
    - If the skill has a `learnings.md`, create an empty one in the destination
 3. Skip skills that require integrations the user doesn't have:
-   - `fathom-calls` -> skip if fathom not enabled
+   - `sync-calls` -> skip if call_recording not enabled
    - Skills that heavily use Google Workspace -> skip if not enabled
 
 Report which skills were installed.
@@ -418,7 +425,7 @@ Display a summary:
 ### Integrations
 - Linear: Connected
 - Google Workspace: [Enabled/Disabled]
-- Fathom: [Enabled/Disabled]
+- Call Recording: [Enabled/Disabled] ([provider name] if enabled)
 - Outreach Sheet: [Enabled/Disabled]
 
 ### Context Files Generated

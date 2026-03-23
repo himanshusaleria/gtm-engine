@@ -28,7 +28,7 @@ The `/setup` wizard walks you through everything interactively. Below is what ea
 
 The wizard asks what tools you use:
 - **CRM:** Linear (required)
-- **Call recording:** Fathom, Fireflies, or none
+- **Call recording:** Fathom, Fireflies, Otter, Grain, or none
 - **Docs/email:** Google Workspace or none
 
 Based on your answers, it determines which MCP servers to install and which skills to activate.

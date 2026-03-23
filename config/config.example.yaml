@@ -72,10 +72,11 @@ integrations:
     enabled: false                    # Set to true after installing Google Workspace MCP
     # No API keys needed — MCP handles auth
 
-  # Fathom call recording
-  fathom:
-    enabled: false                    # Set to true if you use Fathom
-    api_key_env: "FATHOM_API_KEY"     # Name of env var in .env file
+  # Call recording (Fathom, Fireflies, Otter, Grain, etc.)
+  call_recording:
+    enabled: false                    # Set to true if you use a call recording tool
+    provider: ""                      # fathom | fireflies | otter | grain
+    api_key_env: ""                   # Name of env var in .env file (e.g., FATHOM_API_KEY, FIREFLIES_API_KEY)
 
   # Lead tracking spreadsheet
   outreach_sheet:

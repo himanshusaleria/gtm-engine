@@ -24,7 +24,7 @@ Built for 0-to-1 founders doing sales for the first time.
 | `/validate-lead` | Research Analyst | Score any company against your ICP in 30 seconds — web research, no-go rules, tier classification |
 | `/cold-email` | Outreach Writer | Signal-based cold emails that lead with pain, not features. Gets better with every feedback loop. |
 | `/whats-new` | Release Manager | After `git pull`, shows what changed and offers to update your skills |
-| `/fathom-calls` | Call Librarian | Sync recordings from Fathom, auto-route to folders, save formatted transcripts |
+| `/sync-calls` | Call Librarian | Sync recordings from any call tool (Fathom, Fireflies, Otter, Grain), save formatted transcripts |
 
 ## Demo: A Typical Day
 
@@ -94,7 +94,7 @@ Open Claude Code in the `gtm-engine/` directory:
 ```
 
 The wizard walks you through:
-1. **Stack discovery** — what tools you use (Linear required, Google Workspace recommended, Fathom optional)
+1. **Stack discovery** — what tools you use (Linear required, Google Workspace recommended, call recording optional)
 2. **MCP installation** — connects Claude Code to Linear, Google Workspace, etc.
 3. **Company context** — name, product, team members, Linear teams
 4. **ICP workshop** — define who you sell to, scoring criteria, auto-reject rules
@@ -130,7 +130,7 @@ Pulls from Linear and Google Calendar. Shows tasks by status (In Progress → To
 ```
 /good-night             # Full wrap-up
 /good-night --quick     # Skip call sync
-/good-night --fathom    # Only sync calls
+/good-night --calls     # Only sync calls
 ```
 
 Scores your 3+2 (how many meaningful/light tasks completed), tracks your streak, reviews open tasks, drafts an EOD message you can copy-paste, previews tomorrow's calendar, and plans tomorrow's 3+2.
@@ -213,15 +213,15 @@ Interactive session that builds your entire sales context from scratch. Generate
 
 After running `git pull`, this skill compares your installed version against the repo, shows what changed, and offers to update affected skills. Your learnings files are never overwritten.
 
-### `/fathom-calls` — Call Transcript Sync
+### `/sync-calls` — Call Transcript Sync
 
 ```
-/fathom-calls           # Fetch last 20 calls
-/fathom-calls --recent  # Last 7 days only
-/fathom-calls --sync    # Auto-save all new calls
+/sync-calls             # Fetch new calls since last sync
+/sync-calls --all       # Show all recent calls
+/sync-calls --id 123    # Import a specific recording
 ```
 
-Fetches calls from Fathom API, shows what's new vs. already saved, and lets you pick which to download. Transcripts are formatted and saved to `my-context/call-transcripts/`.
+Fetches calls from your configured call recording provider (Fathom, Fireflies, etc.), shows what's new vs. already saved, and lets you pick which to download. For tools without API support (Otter, Grain), offers manual transcript import. Transcripts are formatted and saved to `my-context/call-transcripts/`.
 
 ## Frameworks
 
@@ -275,7 +275,7 @@ gtm-engine/
 |-------------|-----------|----------------|-------|
 | **[Linear](docs/linear-setup.md)** | Required | Pipeline CRM, task management, 3+2 daily system | MCP server |
 | **[Google Workspace](docs/mcp-setup.md)** | Recommended | Calendar briefings, Gmail drafts, Sheets-based lead tracking | MCP server |
-| **[Fathom](docs/mcp-setup.md)** | Optional | Call transcript auto-sync | API key in `.env` |
+| **Call Recording** (Fathom, Fireflies, etc.) | Optional | Call transcript sync via `/sync-calls` | API key in `.env` (if API-based) |
 
 ## Updating
 
@@ -317,7 +317,7 @@ done
 
 - [Setup Guide](docs/setup-guide.md) — Full installation walkthrough
 - [Linear Setup](docs/linear-setup.md) — Two-team CRM workflow
-- [MCP Setup](docs/mcp-setup.md) — Connecting Linear, Google Workspace, Fathom
+- [MCP Setup](docs/mcp-setup.md) — Connecting Linear, Google Workspace, call recording
 - [Framework Guide](docs/framework-guide.md) — Learning and applying frameworks
 - [Skill Catalog](skills/README.md) — All skills with detailed usage guides
 

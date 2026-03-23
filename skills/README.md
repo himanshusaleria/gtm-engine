@@ -15,11 +15,11 @@ Skills are automated workflows that Claude Code executes. They're the engine in 
 | [`/setup`](setup/) | Interactive config wizard | Linear | `--icp`, `--personas`, `--messaging`, `--signals`, `--reinstall` |
 | [`/whats-new`](whats-new/) | Show updates after `git pull` | None | — |
 | [`/good-morning`](good-morning/) | Daily morning briefing | Linear, Calendar (opt) | `--quick`, `--team` |
-| [`/good-night`](good-night/) | End-of-day wrap-up | Linear, Calendar (opt) | `--quick`, `--fathom` |
+| [`/good-night`](good-night/) | End-of-day wrap-up | Linear, Calendar (opt) | `--quick`, `--calls` |
 | [`/analyse-call`](analyse-call/) | Framework analysis of call transcripts | None | `--quick`, `--scorecard-only`, `--compare` |
 | [`/validate-lead`](validate-lead/) | ICP lead scoring | None (web search) | `--batch`, `--improve` |
 | [`/cold-email`](cold-email/) | Signal-based cold outreach | None | `--sequence`, `--improve` |
-| [`/fathom-calls`](fathom-calls/) | Sync call recordings from Fathom | Fathom API | `--recent`, `--sync` |
+| [`/sync-calls`](sync-calls/) | Sync call recordings from any provider | Call recording API (opt) | `--all`, `--id` |
 
 ## Required vs Optional Integrations
 
@@ -39,9 +39,9 @@ Skills are automated workflows that Claude Code executes. They're the engine in 
 - `/good-night` — calendar preview
 - `/validate-lead --batch` — reads lead tracking sheet
 
-**Needs Fathom API key:**
-- `/fathom-calls` — syncs call recordings
-- `/good-night --fathom` — auto-syncs during evening routine
+**Needs call recording provider (optional):**
+- `/sync-calls` — syncs call recordings (API-based providers need API key in `.env`)
+- `/good-night --calls` — auto-syncs during evening routine
 
 ## Self-Improving Skills
 

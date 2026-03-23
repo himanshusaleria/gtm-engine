@@ -5,7 +5,7 @@ End-of-day review that summarizes accomplishments, drafts EOD message, previews 
 ## Invocation
 - `/good-night` — Full evening wrap-up
 - `/good-night --quick` — Skip call sync, just summary + EOD + tomorrow
-- `/good-night --fathom` — Only fetch and save calls (if Fathom enabled)
+- `/good-night --calls` — Only fetch and save calls (if call recording enabled)
 
 ## Prerequisites
 - Linear MCP installed and connected
@@ -16,7 +16,7 @@ End-of-day review that summarizes accomplishments, drafts EOD message, previews 
 
 Parse the argument (if any) from `$ARGUMENTS` to determine mode:
 - If `$ARGUMENTS` contains `--quick` → quick mode (skip call sync)
-- If `$ARGUMENTS` contains `--fathom` → fathom-only mode
+- If `$ARGUMENTS` contains `--calls` → calls-only mode
 - Otherwise → full mode
 
 **First:** Read `config/config.yaml` (relative to project root) to load all configuration. Extract:
@@ -29,7 +29,7 @@ Parse the argument (if any) from `$ARGUMENTS` to determine mode:
 - `config.ritual.light_count` — number of light tasks (default 2)
 - `config.ritual.meaningful_definition` — what counts as meaningful
 - `config.ritual.light_definition` — what counts as light
-- `config.integrations.fathom` — Fathom call recording settings
+- `config.integrations.call_recording` — call recording provider settings (provider, api_key_env, enabled)
 - `config.integrations.outreach_sheet` — outreach spreadsheet settings
 - `config.integrations.google_workspace.enabled` — whether calendar is available
 
@@ -42,14 +42,15 @@ Use `mcp__google-workspace__time_getCurrentDate` to get today's date and timezon
 
 ### Step 2: Fetch calls (skip in --quick mode)
 
-**Only run if** `config.integrations.fathom.enabled` is true. Otherwise skip entirely.
+**Only run if** `config.integrations.call_recording.enabled` is true. Otherwise skip entirely.
 
-**If `--fathom` mode or full mode:**
+**If `--calls` mode or full mode:**
 
-1. Read `memory/fathom_sync.md` (relative to project root) to get the last synced tracking info. Look for `last_imported_call_date` and `last_imported_recording_id`. If the file does not exist, this is the first sync — fetch the most recent 20 calls.
-2. Use Bash to call the Fathom API:
-   - The API key env var name is in `config.integrations.fathom.api_key_env` (default: `FATHOM_API_KEY`)
-   - `curl -s -H "X-Api-Key: ${api_key_env_value}" "https://api.fathom.ai/external/v1/meetings?limit=20"`
+1. Read `memory/call_sync.md` (relative to project root) to get the last synced tracking info. Look for `last_imported_call_date` and `last_imported_recording_id`. If the file does not exist, this is the first sync — fetch the most recent 20 calls.
+2. Determine the provider from `config.integrations.call_recording.provider` and call the appropriate API:
+   - **Fathom:** `curl -s -H "X-Api-Key: ${api_key_env_value}" "https://api.fathom.ai/external/v1/meetings?limit=20"`
+   - **Fireflies:** `curl -s -X POST "https://api.fireflies.ai/graphql" -H "Authorization: Bearer ${api_key_env_value}" -H "Content-Type: application/json" -d '{"query": "{ transcripts { id title date duration organizer_email participants sentences { speaker_name text } } }"}'`
+   - **Otter/Grain/other:** Prompt user to paste or drop a transcript file instead
    - Filter results to calls created after the last synced datetime
 3. Present calls in a table:
    ```
@@ -57,17 +58,16 @@ Use `mcp__google-workspace__time_getCurrentDate` to get today's date and timezon
    ```
 4. Ask the user: "Which calls should I save? (Enter numbers, 'all', or 'none')"
 5. For each selected call:
-   - Fetch full transcript: `curl -s -H "X-Api-Key: ${api_key_env_value}" "https://api.fathom.ai/external/v1/recordings/{recording_id}/transcript"`
-   - Fetch summary: `curl -s -H "X-Api-Key: ${api_key_env_value}" "https://api.fathom.ai/external/v1/recordings/{recording_id}/summary"`
+   - Fetch full transcript and summary using the provider-appropriate API endpoints (see `/sync-calls` SKILL.md for details)
    - Save transcript to `my-context/call-transcripts/{date}_{sanitized_title}.md` (relative to project root) with:
-     - YAML frontmatter (title, date, attendees, duration, recording_id)
+     - YAML frontmatter (title, date, attendees, duration, recording_id, source provider)
      - Summary/key points section
      - Full transcript
-6. Update `memory/fathom_sync.md` with the new last-synced date and recording_id
+6. Update `memory/call_sync.md` with the new last-synced date and recording_id
 
-**If `--fathom` mode, STOP HERE** after saving calls.
+**If `--calls` mode, STOP HERE** after saving calls.
 
-### Step 3: Today's {meaningful_count}+{light_count} Scorecard (skip in --fathom mode)
+### Step 3: Today's {meaningful_count}+{light_count} Scorecard (skip in --calls mode)
 
 Read the ritual settings from config. Use the label names for meaningful and light tasks.
 
@@ -105,13 +105,13 @@ Before listing completed tasks, check how today's planned tasks went:
 
 If no meaningful or light tasks exist for today (system was not used last night), skip this step silently and note "No {meaningful_count}+{light_count} planned for today" in the output.
 
-### Step 3b: Tasks completed today (skip in --fathom mode)
+### Step 3b: Tasks completed today (skip in --calls mode)
 
 1. Use `mcp__linear__list_issues` with `assignee: "me"`, `team: "{action_team}"`, `state: "Done"`, `updatedAt: "-P1D"` — tasks completed recently
 2. Filter to tasks whose completion happened today (check updatedAt)
 3. Format as: `| Task | Priority | Completed |`
 
-### Step 4: Tasks still open (skip in --fathom mode)
+### Step 4: Tasks still open (skip in --calls mode)
 
 1. Use `mcp__linear__list_issues` with `assignee: "me"`, `team: "{action_team}"`, `state: "In Progress"` — still open
 2. Use `mcp__linear__list_issues` with `assignee: "me"`, `team: "{action_team}"`, `state: "Todo"` — not started
@@ -119,15 +119,15 @@ If no meaningful or light tasks exist for today (system was not used last night)
 4. For uncompleted tasks, suggest new due dates (tomorrow or next business day)
 5. Ask: "Want me to update the due dates for incomplete tasks?"
 
-### Step 5: Day summary (skip in --fathom mode)
+### Step 5: Day summary (skip in --calls mode)
 
 Generate a concise 2-3 sentence summary of what was accomplished today based on:
 - Completed tasks
-- Calls taken (from Fathom if available)
+- Calls taken (from call sync if available)
 - Any deals that moved stages
 - Any notable follow-ups sent
 
-### Step 6: EOD message (skip in --fathom mode)
+### Step 6: EOD message (skip in --calls mode)
 
 Draft an end-of-day message in this format:
 
@@ -152,7 +152,7 @@ Rules for the EOD message:
 - Group similar items (e.g., "3 follow-up emails sent" instead of listing each)
 - Present the message and ask: "Want me to post this somewhere, or copy it?"
 
-### Step 7: Tomorrow preview (skip in --fathom mode)
+### Step 7: Tomorrow preview (skip in --calls mode)
 
 1. If Google Workspace MCP is available: use `mcp__google-workspace__calendar_listEvents` with `calendarId: "primary"`, `timeMin` = start of tomorrow, `timeMax` = end of tomorrow
 2. Use `mcp__linear__list_issues` with `assignee: "me"`, `team: "{action_team}"` — filter to tasks due tomorrow
@@ -169,7 +169,7 @@ Rules for the EOD message:
    |------|----------|
    ```
 
-### Step 8: Plan Tomorrow's {meaningful_count}+{light_count} (skip in --fathom mode)
+### Step 8: Plan Tomorrow's {meaningful_count}+{light_count} (skip in --calls mode)
 
 Plan tomorrow's meaningful and light tasks using data already gathered:
 
@@ -230,7 +230,7 @@ Plan tomorrow's meaningful and light tasks using data already gathered:
      - If it already exists in Linear → add the light label and set due date to tomorrow
      - If it does not exist → create in {action_team} Backlog with the light label, due date tomorrow, assigned to default assignee. Also add the default label from config.
 
-### Step 9: Team end-of-day check (full mode only, skip in --quick and --fathom)
+### Step 9: Team end-of-day check (full mode only, skip in --quick and --calls)
 
 **Only run this step if** `config.team` contains at least one member with `role: "sdr"` **AND** `config.integrations.outreach_sheet.enabled` is true. Otherwise skip entirely.
 
@@ -327,14 +327,24 @@ Find the SDR team member(s) from config. Use their `linear_user_id` and the conf
 - Updates: X
 ```
 
+### Step 10: Evening Quote
+
+End the wrap-up with a fulfilling, contentment-oriented quote. Pick a quote that is calming, reflective, and acknowledges the value of the work done — themes of gratitude, progress, patience, perspective, or inner peace. Rotate quotes so the user doesn't see the same one twice in a row. Draw from philosophers, poets, writers, spiritual thinkers — anyone whose words bring a sense of fulfillment.
+
+Format:
+```
+> "{quote}"
+> — {attribution}
+```
+
 ## Important Notes
 - Always use actual data — do not fabricate or assume
-- If Fathom is not enabled in config, skip call sync entirely and note "Call sync disabled"
-- If Fathom API fails, note the error and continue with other sections
+- If call recording is not enabled in config, skip call sync entirely and note "Call sync disabled"
+- If the call recording API fails, note the error and continue with other sections
 - If Google Workspace MCP is not available, skip calendar sections
 - If no tasks were completed, still generate the EOD with meetings/activities
 - The EOD message should be ready to copy-paste — clean formatting, no extra markup
 - For call transcript saving, sanitize filenames (replace spaces with underscores, remove special chars)
-- Update `memory/fathom_sync.md` ONLY after successfully fetching calls
+- Update `memory/call_sync.md` ONLY after successfully fetching calls
 - All file paths are relative to the project root unless otherwise stated
 - If outreach sheet is not configured, skip team end-of-day check entirely

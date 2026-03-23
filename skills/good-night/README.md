@@ -4,14 +4,14 @@ Close out your day with a review, scorecard, EOD message, and tomorrow's plan.
 
 ## What It Does
 
-Scores your 3+2 task completion, summarizes what got done, drafts an EOD update message, previews tomorrow's calendar and tasks, and plans your next day's 3+2. Optionally syncs call recordings from Fathom.
+Scores your 3+2 task completion, summarizes what got done, drafts an EOD update message, previews tomorrow's calendar and tasks, and plans your next day's 3+2. Optionally syncs call recordings from your configured provider.
 
 ## Usage
 
 ```
 /good-night            # Full wrap-up
 /good-night --quick    # Skip call sync, just summary + EOD + tomorrow
-/good-night --fathom   # Only fetch and save new calls
+/good-night --calls    # Only fetch and save new calls
 ```
 
 ## Prerequisites
@@ -19,11 +19,11 @@ Scores your 3+2 task completion, summarizes what got done, drafts an EOD update 
 - `config/config.yaml` exists (run `/setup` first)
 - Linear MCP connected
 - Google Workspace MCP (optional, for calendar)
-- Fathom API key in `.env` (optional, for call sync)
+- Call recording API key in `.env` (optional, for call sync)
 
 ## What It Covers
 
-1. **Call sync** — fetches new recordings from Fathom, lets you pick which to save as transcripts
+1. **Call sync** — fetches new recordings from your call recording provider, lets you pick which to save as transcripts
 2. **3+2 scorecard** — checks which meaningful and light tasks you completed, updates your streak
 3. **Completed tasks** — lists everything marked done today
 4. **Open tasks** — flags incomplete tasks with suggested new due dates
@@ -41,5 +41,5 @@ Each night you pick 3 meaningful tasks (sales-moving) and 2 light tasks (operati
 
 - Incomplete meaningful tasks can be moved to tomorrow or dropped
 - The EOD message is formatted for easy copy-paste to Slack or email
-- Run `--fathom` standalone anytime to import calls without doing the full wrap-up
+- Run `--calls` standalone anytime to import calls without doing the full wrap-up
 - The streak resets if you miss all meaningful tasks for a day

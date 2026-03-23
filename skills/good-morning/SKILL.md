@@ -33,6 +33,16 @@ Parse the argument (if any) from `$ARGUMENTS` to determine mode:
 
 Identify the **default assignee** = the team member with `is_default_assignee: true`.
 
+### Step 0: Morning Quote
+
+Start the briefing with a motivating quote. Pick a quote that is energizing, action-oriented, and relevant to building something from scratch — entrepreneurship, sales, persistence, courage, or doing hard things. Rotate quotes so the user doesn't see the same one twice in a row. Draw from founders, athletes, philosophers, writers — anyone whose words light a fire.
+
+Format:
+```
+> "{quote}"
+> — {attribution}
+```
+
 ### Step 1: Get today's date and calendar (skip in --team mode)
 
 1. Use `mcp__google-workspace__time_getCurrentDate` to get today's date
