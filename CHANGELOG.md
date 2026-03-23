@@ -2,6 +2,25 @@
 
 All notable changes to the GTM Engine will be documented in this file.
 
+## [1.1.0] — 2026-03-22
+
+### Added
+- **Prospect Qualification (BANT)** framework — Budget, Authority, Need, Timeline scoring for qualifying prospects
+- **Positioning Levels (Vitamin vs Painkiller)** framework — Diagnosing and elevating your positioning level
+- **Selling Window** framework — Five stages of org pain awareness (Unaware → Annoyed → Hurting → Desperate → Solved)
+- **Pain Discovery (SPIN Selling)** framework — Situation, Problem, Implication, Need-payoff question methodology
+- **Sales Playbook** framework — Seven-stage founder's deal checklist (Research → Outreach → Discovery → Demo → Proof → Close → Handoff)
+
+### Changed
+- All 11 frameworks now active — no more "Coming Soon" placeholders
+- Updated `/analyse-call` skill with new framework sections (G: Positioning Analysis, H: Selling Window Assessment, I: SPIN Analysis, J: Sales Playbook Progress)
+- Updated framework guide with expanded learning path (now 6 weeks)
+- Bumped version to 1.1.0
+
+### Removed
+- Placeholder "Coming Soon" pages for 5 frameworks
+- "Pending attribution approval" language throughout
+
 ## [1.0.0] — 2026-03-13
 
 ### Added

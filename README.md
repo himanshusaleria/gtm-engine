@@ -20,7 +20,7 @@ Built for 0-to-1 founders doing sales for the first time.
 | `/setup` | Onboarding | Interactive wizard: company context → Linear CRM → ICP definition → persona mapping → messaging |
 | `/good-morning` | Chief of Staff | Daily briefing: calendar, pipeline, tasks, 3+2 plan, team audit, overdue alerts |
 | `/good-night` | Chief of Staff | EOD wrap-up: score today's tasks, sync call recordings, plan tomorrow's 3+2, draft EOD message |
-| `/analyse-call` | Sales Coach | Apply 6+ frameworks to any call transcript — positioning, commitment scoring, discovery quality, next steps |
+| `/analyse-call` | Sales Coach | Apply 11 frameworks to any call transcript — positioning, commitment scoring, discovery quality, next steps |
 | `/validate-lead` | Research Analyst | Score any company against your ICP in 30 seconds — web research, no-go rules, tier classification |
 | `/cold-email` | Outreach Writer | Signal-based cold emails that lead with pain, not features. Gets better with every feedback loop. |
 | `/whats-new` | Release Manager | After `git pull`, shows what changed and offers to update your skills |
@@ -225,7 +225,7 @@ Fetches calls from Fathom API, shows what's new vs. already saved, and lets you 
 
 ## Frameworks
 
-Six battle-tested sales frameworks ship in v1. Five more coming soon (pending attribution approval).
+Eleven sales frameworks covering the full sales cycle — from finding prospects to closing deals.
 
 | Framework | What It Teaches |
 |-----------|----------------|
@@ -235,10 +235,13 @@ Six battle-tested sales frameworks ship in v1. Five more coming soon (pending at
 | **[Intent Signals](frameworks/intent-signals.md)** | Six types of buying signals and how to score them. Know who needs you before you pitch. |
 | **[Messaging Structure](frameworks/messaging-structure.md)** | Issue → Impact → Current Resolution → Outcome. Structure every outreach message. |
 | **[Pipeline Scorecard](frameworks/pipeline-scorecard.md)** | Score prospect commitment objectively. Separate what they say from what they do. |
+| **[Prospect Qualification](frameworks/prospect-qualification.md)** | BANT scoring — Budget, Authority, Need, Timeline. Decide if a prospect is worth your time. |
+| **[Positioning Levels](frameworks/positioning-levels.md)** | Are you selling a vitamin or a painkiller? How to reposition through better discovery. |
+| **[Selling Window](frameworks/selling-window.md)** | Five stages of org pain awareness. Time your outreach to when the window is open. |
+| **[Pain Discovery](frameworks/pain-discovery.md)** | SPIN Selling — Situation, Problem, Implication, Need-payoff questions that surface real pain. |
+| **[Sales Playbook](frameworks/sales-playbook.md)** | Seven-stage founder's deal checklist: Research → Outreach → Discovery → Demo → Proof → Close → Handoff. |
 
 Each framework includes: what it is, why it matters, the model, how to apply it, a workshop to build yours, a generic example, connections to other frameworks, and anti-patterns.
-
-**Coming soon:** Commitment Matrix (TEMQ), Positioning Levels (VPP), Deal Stages, Pain Validation, Sales Process (7S).
 
 ## Architecture
 

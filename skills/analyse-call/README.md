@@ -4,7 +4,7 @@ Applies your sales frameworks to a call transcript and produces a structured eva
 
 ## What It Does
 
-Reads a call transcript, identifies participants and deal context, then runs every available framework against it: ICP fit, buyer's pyramid position, discovery quality, intent signals, messaging effectiveness, commitment scoring, value positioning, deal stage, pain validation, and sales process progress. Ends with concrete next steps and optional Linear task creation.
+Reads a call transcript, identifies participants and deal context, then runs all 11 frameworks against it: ICP fit, buyer's pyramid position, discovery quality, intent signals, messaging effectiveness, commitment scoring, BANT qualification, vitamin vs painkiller positioning, selling window stage, SPIN pain discovery, and sales playbook progress. Ends with concrete next steps and optional Linear task creation.
 
 ## Usage
 
@@ -30,11 +30,11 @@ Reads a call transcript, identifies participants and deal context, then runs eve
 | Discovery Quality | Mom Test / Discovery Questions |
 | Intent Signals | Intent Diagnostic |
 | Messaging | Outcome Messaging |
-| Commitment Score | TEMQ Matrix / Pipeline Scorecard |
-| Value Positioning | VPP / Positioning Model |
-| Deal Stage | Causal Law / Deal Stages |
-| Pain Validation | Pain Framework |
-| Process Progress | 7S Sales Process |
+| Commitment Score | Pipeline Scorecard + BANT Qualification |
+| Positioning | Vitamin vs Painkiller / Positioning Levels |
+| Selling Window | Org Pain Stages (Unaware → Solved) |
+| Pain Discovery | SPIN Selling (Situation → Need-payoff) |
+| Process Progress | Founder's Sales Playbook (7 stages) |
 
 Only frameworks with real content are applied. Missing frameworks are noted.
 

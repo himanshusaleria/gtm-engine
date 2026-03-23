@@ -63,7 +63,11 @@ All sales frameworks are in `frameworks/`. Apply these when analysing calls, eva
 | Intent Signals | `frameworks/intent-signals.md` | Diagnosing buyer intent before selling |
 | Messaging Structure | `frameworks/messaging-structure.md` | Writing cold emails, outreach messages |
 | Pipeline Scorecard | `frameworks/pipeline-scorecard.md` | Pipeline-wide commitment tracking |
-{{ADDITIONAL_FRAMEWORKS}}
+| Prospect Qualification | `frameworks/prospect-qualification.md` | Qualifying prospects with BANT scoring |
+| Positioning Levels | `frameworks/positioning-levels.md` | Diagnosing vitamin vs painkiller positioning |
+| Selling Window | `frameworks/selling-window.md` | Reading org pain awareness stages |
+| Pain Discovery | `frameworks/pain-discovery.md` | SPIN questions for surfacing and quantifying pain |
+| Sales Playbook | `frameworks/sales-playbook.md` | 7-stage deal checklist from research to handoff |
 
 **Rule:** When analysing any customer call, apply ALL available frameworks using `/analyse-call`.
 

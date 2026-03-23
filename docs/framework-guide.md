@@ -8,7 +8,7 @@ Frameworks aren't just reference docs — they're actively used by skills:
 
 | Skill | Frameworks Used |
 |-------|----------------|
-| `/analyse-call` | All available frameworks applied to call transcripts |
+| `/analyse-call` | All 11 frameworks applied to call transcripts |
 | `/validate-lead` | Customer Profile (ICP) for scoring |
 | `/cold-email` | Messaging Structure for email writing |
 | `/good-morning` | Pipeline Scorecard for deal status |
@@ -16,7 +16,7 @@ Frameworks aren't just reference docs — they're actively used by skills:
 
 ## Available Frameworks
 
-### Active (v1)
+### Foundation (defining your market and prospects)
 
 #### 1. Discovery Questions
 **File:** `frameworks/discovery-questions.md`
@@ -48,6 +48,8 @@ Six types of signals that indicate a company might need your product. Scoring sy
 
 **Use when:** Building outreach lists, prioritizing leads, training your SDR on what to look for.
 
+### Engagement (running conversations and outreach)
+
 #### 5. Messaging Structure
 **File:** `frameworks/messaging-structure.md`
 
@@ -55,24 +57,53 @@ Issue → Impact → Current Resolution → Outcome. Structure every outreach me
 
 **Use when:** Writing cold emails, crafting LinkedIn messages, preparing pitch narratives.
 
-#### 6. Pipeline Scorecard
+#### 6. Pain Discovery (SPIN Selling)
+**File:** `frameworks/pain-discovery.md`
+**Based on:** Neil Rackham's *SPIN Selling*
+
+Four question types — Situation, Problem, Implication, Need-payoff — that progress a conversation from understanding to urgency. Heavy emphasis on Implication questions, the type most founders skip.
+
+**Use when:** Running discovery calls, preparing question banks, reviewing call transcripts for question quality.
+
+#### 7. Positioning Levels (Vitamin vs Painkiller)
+**File:** `frameworks/positioning-levels.md`
+
+Three tiers of how prospects perceive your product: Vitamin (nice-to-have) → Painkiller (must-have) → Life Support (can't live without). How to diagnose your level and reposition through better discovery.
+
+**Use when:** After every prospect interaction — are you selling a vitamin or a painkiller? During call analysis to spot feature-dumping moments.
+
+### Assessment (evaluating deals and pipeline)
+
+#### 8. Pipeline Scorecard
 **File:** `frameworks/pipeline-scorecard.md`
 
 Objective scoring system for where each prospect stands. Separates words from actions.
 
 **Use when:** Pipeline reviews, deciding where to invest time, forecasting.
 
-### Coming Soon (pending attribution approval)
+#### 9. Prospect Qualification (BANT)
+**File:** `frameworks/prospect-qualification.md`
+**Based on:** IBM's BANT methodology (widely public)
 
-These frameworks will be added in a future update:
+Score prospects on Budget, Authority, Need, and Timeline — each rated 1-3. Total score determines Hot (10-12), Warm (7-9), or Cool (4-6) classification.
 
-- **Commitment Matrix** — Four-factor commitment scoring
-- **Positioning Levels** — Value provider → problem solver → painkiller hierarchy
-- **Deal Stages** — Six stages of deal maturity
-- **Pain Validation** — Creating and validating prospect pain
-- **Sales Process** — Seven-stage operational sales process
+**Use when:** After discovery calls to decide if a deal is worth pursuing. During pipeline reviews to prioritize.
 
-Run `/whats-new` after updating to see when they become available.
+#### 10. Selling Window
+**File:** `frameworks/selling-window.md`
+
+Five stages of organizational pain awareness: Unaware → Annoyed → Hurting → Desperate → Solved. The sweet spot is "Hurting" — they feel it, they're looking, they haven't committed to a competitor yet.
+
+**Use when:** Before engaging any prospect — is the org ready? Helps you time outreach for maximum impact and avoid wasting time on Unaware or Solved orgs.
+
+### Operations (running the full deal cycle)
+
+#### 11. Sales Playbook
+**File:** `frameworks/sales-playbook.md`
+
+Seven-stage deal checklist: Research → Outreach → Discovery → Demo → Proof → Close → Handoff. Each stage has objectives, key activities, exit criteria, and common mistakes.
+
+**Use when:** Managing every deal end-to-end. Diagnosing where deals stall. Ensuring no stage gets skipped.
 
 ## How to Learn a Framework
 
@@ -101,6 +132,20 @@ Each framework document follows this structure:
 - Write messages for each persona (`/setup --messaging`)
 - Score your current pipeline
 
+**Week 4:** Pain Discovery + Positioning Levels
+- Prepare SPIN questions for your next 3 discovery calls
+- Review past calls: were you selling vitamins or painkillers?
+
+**Week 5:** Prospect Qualification + Selling Window
+- Score your current pipeline with BANT
+- Assess each prospect's org pain stage
+- Drop or nurture anything that's Unaware/Annoyed with a Cool BANT score
+
+**Week 6:** Sales Playbook
+- Map every active deal to the 7-stage checklist
+- Identify which exit criteria are unmet for each deal
+- Build your own question bank, demo flow, and POC template
+
 ## Customizing Frameworks
 
 Frameworks are in the `frameworks/` directory and tracked by git. To customize:
@@ -121,7 +166,17 @@ Customer Profile ──→ /validate-lead (scoring criteria)
         │
         └──→ Discovery Questions (what to ask ICP prospects)
 
+Pain Discovery ──→ Positioning Levels (SPIN elevates vitamin → painkiller)
+        │
+        └──→ Prospect Qualification (SPIN answers feed BANT scores)
+
+Selling Window ──→ Sales Playbook (Stage 1 Research includes window assessment)
+        │
+        └──→ Intent Signals (signals reveal which window stage)
+
 Messaging Structure ──→ /cold-email (email structure)
         │
         └──→ Pipeline Scorecard (are they responding to your messaging?)
+
+Sales Playbook ──→ All frameworks (each stage uses specific frameworks)
 ```

@@ -28,26 +28,26 @@ Read the call transcript file. Identify:
 
 ### Step 2: Read the Frameworks
 
-Read all framework files from `frameworks/` in the project root. Skip any that are marked "Coming Soon" or are placeholder files.
+Read all framework files from `frameworks/` in the project root.
 
 Available frameworks (read each that exists):
-- `frameworks/customer-profile.md` (ICP / Customer Profile)
-- `frameworks/market-segments.md` (Buyer's Pyramid / Market Segments)
-- `frameworks/discovery-questions.md` (Mom Test / Discovery Questions)
-- `frameworks/intent-signals.md` (Intent Diagnostic / Intent Signals)
-- `frameworks/messaging-structure.md` (Outcome Messaging)
-- `frameworks/pipeline-scorecard.md` (Commitment Scorecard)
-- `frameworks/positioning-model.md` (Value Positioning — e.g., VPP)
-- `frameworks/commitment-matrix.md` (TEMQ Commitment Matrix)
-- `frameworks/deal-stages.md` (Causal Law / Deal Stages)
-- `frameworks/pain-validation.md` (Pain Framework)
-- `frameworks/sales-process.md` (7S Sales Process)
+- `frameworks/customer-profile.md` (Customer Profile / ICP)
+- `frameworks/market-segments.md` (Market Segments / Buyer's Pyramid)
+- `frameworks/discovery-questions.md` (Discovery Questions / Mom Test)
+- `frameworks/intent-signals.md` (Intent Signals)
+- `frameworks/messaging-structure.md` (Messaging Structure)
+- `frameworks/pipeline-scorecard.md` (Pipeline Scorecard)
+- `frameworks/prospect-qualification.md` (Prospect Qualification / BANT)
+- `frameworks/positioning-levels.md` (Positioning Levels / Vitamin vs Painkiller)
+- `frameworks/selling-window.md` (Selling Window / Org Pain Stages)
+- `frameworks/pain-discovery.md` (Pain Discovery / SPIN Selling)
+- `frameworks/sales-playbook.md` (Sales Playbook / 7-Stage Deal Checklist)
 
 Also read user context if available:
 - `my-context/icp-definition.md` (user's ICP details)
 - `my-context/company-overview.md` (product context)
 
-**Note:** Some frameworks may not yet exist or may be placeholders. Only apply frameworks that have real content. For missing frameworks, note: "Additional frameworks will be available in future updates."
+**Note:** Only apply frameworks that have real content.
 
 ### Step 3: Apply Frameworks
 
@@ -88,33 +88,39 @@ For each available framework with real content, analyse the call. Use as many of
 - Where did they fall into feature-selling mode?
 
 #### F. Commitment Scorecard
-(Requires `pipeline-scorecard.md` or `commitment-matrix.md`)
+(Requires `pipeline-scorecard.md` and/or `prospect-qualification.md`)
 - Score the prospect on engagement, problem acknowledgment, timeline, resources.
 - Words vs Actions assessment, scored 1-3 each where applicable.
+- BANT score: Budget, Authority, Need, Timeline — each rated 1-3.
 - Flag gaps between what the prospect said and what they did.
 
-#### G. Value Positioning Analysis
-(Requires `positioning-model.md`)
-- Where did the team position during the call?
-- Quote specific moments where positioning was strong.
-- Quote moments where positioning was weak.
+#### G. Positioning Analysis
+(Requires `positioning-levels.md`)
+- What positioning level was the team selling at? Vitamin, Painkiller, or Life Support?
+- Quote specific moments where positioning was at the Painkiller level (strong).
+- Quote moments where the team slipped into Vitamin territory (feature-listing, no pain connection).
+- What questions could have elevated positioning?
 
-#### H. Deal Stage Assessment
-(Requires `deal-stages.md`)
-- Which stage is this deal at?
+#### H. Selling Window Assessment
+(Requires `selling-window.md`)
+- Which org pain awareness stage is this prospect at? Unaware / Annoyed / Hurting / Desperate / Solved.
 - What evidence from the call supports this assessment?
-- What's needed to move to the next stage?
+- Are there buying triggers visible (scaling, incidents, new leadership, compliance)?
+- Is the selling window open? Is the team's approach matched to the org's stage?
 
-#### I. Pain Validation
-(Requires `pain-validation.md`)
-- What pain was identified during the call?
-- Was it validated with impact questions?
-- Pain = Problem + Impact? Or just Problem with no validated impact?
+#### I. Pain Discovery (SPIN Analysis)
+(Requires `pain-discovery.md`)
+- Which SPIN question types were used during the call? (Situation / Problem / Implication / Need-payoff)
+- What was the ratio? (Ideal: 10-15% S, 20-25% P, 40-50% I, 15-20% N)
+- Were Implication questions asked? (The type most founders skip.)
+- Did the prospect quantify the cost of their problem in their own words?
+- Did the prospect articulate what solving it would mean? (Need-payoff)
 
-#### J. Sales Process Progress
-(Requires `sales-process.md`)
-- Which stages have been completed for this deal?
-- Checklist of completed vs remaining stages.
+#### J. Sales Playbook Progress
+(Requires `sales-playbook.md`)
+- Which of the 7 stages has this deal completed? Research / Outreach / Discovery / Demo / Proof / Close / Handoff
+- Checklist of exit criteria met vs remaining for the current stage.
+- What's the next stage and what needs to happen to get there?
 
 ### Step 4: What Went Right / Wrong
 

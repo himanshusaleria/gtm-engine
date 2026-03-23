@@ -12,16 +12,11 @@ A collection of practical sales frameworks for B2B founders going from 0 to 1. E
 | **Intent Signals** | [intent-signals.md](intent-signals.md) | Prioritizing outreach. Identifying observable behaviors that indicate a prospect is moving toward a purchase. |
 | **Messaging Structure** | [messaging-structure.md](messaging-structure.md) | Writing cold emails, LinkedIn messages, or any outreach. Structuring messages around pain, not features. |
 | **Pipeline Scorecard** | [pipeline-scorecard.md](pipeline-scorecard.md) | Weekly pipeline review. Objectively scoring prospect commitment so you focus on deals that will close. |
-
-## Coming Soon (Pending Attribution Approval)
-
-| Framework | File | What It Covers |
-|-----------|------|---------------|
-| **Commitment Matrix** | [commitment-matrix.md](commitment-matrix.md) | Granular commitment scoring across four factors and two domains |
-| **Positioning Levels** | [positioning-levels.md](positioning-levels.md) | Three tiers of perceived value — from vendor to painkiller |
-| **Deal Stages** | [deal-stages.md](deal-stages.md) | Six-stage progression from first contact to close |
-| **Pain Validation** | [pain-validation.md](pain-validation.md) | Identifying vs creating pain, and quantifying impact |
-| **Sales Process** | [sales-process.md](sales-process.md) | Seven-phase operational playbook for running deals |
+| **Prospect Qualification** | [prospect-qualification.md](prospect-qualification.md) | After discovery calls. Scoring prospects on Budget, Authority, Need, and Timeline to decide where to invest time. |
+| **Positioning Levels** | [positioning-levels.md](positioning-levels.md) | Every prospect interaction. Diagnosing whether you're selling a vitamin, painkiller, or life support — and how to reposition. |
+| **Selling Window** | [selling-window.md](selling-window.md) | Before engaging any prospect. Reading the org's pain awareness stage to time your outreach for maximum impact. |
+| **Pain Discovery** | [pain-discovery.md](pain-discovery.md) | During discovery calls. Using SPIN questions to surface real pain, quantify its cost, and create urgency. |
+| **Sales Playbook** | [sales-playbook.md](sales-playbook.md) | Managing every deal end-to-end. Seven-stage checklist from research to close to handoff. |
 
 ## How to Use These Frameworks
 
@@ -29,20 +24,24 @@ A collection of practical sales frameworks for B2B founders going from 0 to 1. E
 1. Start with **Customer Profile** — define who you're selling to
 2. Then **Discovery Questions** — learn how to talk to them
 3. Then **Messaging Structure** — learn how to write to them
+4. Then **Sales Playbook** — learn the full deal process
 
 ### If you have some pipeline
 1. Start with **Pipeline Scorecard** — score what you've got
-2. Use **Intent Signals** to find more prospects like your best deals
-3. Use **Market Segments** to expand beyond the obvious 3%
+2. Use **Prospect Qualification** to re-qualify your current deals
+3. Use **Intent Signals** to find more prospects like your best deals
+4. Use **Market Segments** to expand beyond the obvious 3%
 
 ### If you're refining your approach
-1. Revisit **Customer Profile** — is your ICP still accurate?
-2. Cross-reference **Intent Signals** with **Pipeline Scorecard** — do strong signals predict strong commitment?
-3. A/B test **Messaging Structure** variations for different personas and pyramid tiers
+1. Use **Pain Discovery** to improve your discovery calls
+2. Apply **Positioning Levels** — are you selling vitamins or painkillers?
+3. Use **Selling Window** to time your outreach to org pain stages
+4. Cross-reference **Intent Signals** with **Pipeline Scorecard** — do strong signals predict strong commitment?
+5. A/B test **Messaging Structure** variations for different personas and pyramid tiers
 
 ## Framework Structure
 
-Every active framework follows the same structure:
+Every framework follows the same structure:
 
 - **What Is It?** — Core concept in plain language
 - **Why It Matters for 0-1 Sales** — Why this is relevant when you're early stage
