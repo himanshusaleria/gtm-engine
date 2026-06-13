@@ -42,7 +42,7 @@ Identify the **default assignee** = the team member with `is_default_assignee: t
 3. Store them as `{action_team_id}` and `{pipeline_team_id}` for the rest of the session
 4. If either name cannot be matched, surface a clear error and stop — do not run unscoped Linear searches
 
-Every Linear issue query below MUST include `teamId` (the UUID). The `team` name parameter is kept for readability but is not a substitute.
+Every Linear issue query below MUST include `teamId` (the UUID).
 
 ### Step 1: Get today's date and timezone
 
