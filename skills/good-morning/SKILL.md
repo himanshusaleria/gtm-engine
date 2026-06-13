@@ -33,6 +33,15 @@ Parse the argument (if any) from `$ARGUMENTS` to determine mode:
 
 Identify the **default assignee** = the team member with `is_default_assignee: true`.
 
+**Resolve Linear team IDs (required):** Some Linear MCP servers (e.g., `linear-mcp-server`) hang indefinitely when issue searches are made without a `teamId`. Before any issue query:
+
+1. Call `mcp__linear__list_teams` once
+2. Match `action_team` and `pipeline_team` names to their UUIDs
+3. Store them as `{action_team_id}` and `{pipeline_team_id}` for the rest of the session
+4. If either name cannot be matched, surface a clear error and stop — do not run unscoped Linear searches
+
+Every Linear issue query below MUST include `teamId` (the UUID). The `team` name parameter is kept for readability but is not a substitute.
+
 ### Step 0: Morning Quote
 
 Start the briefing with a motivating quote. Pick a quote that is energizing, action-oriented, and relevant to building something from scratch — entrepreneurship, sales, persistence, courage, or doing hard things. Rotate quotes so the user doesn't see the same one twice in a row. Draw from founders, athletes, philosophers, writers — anyone whose words light a fire.
@@ -55,9 +64,9 @@ Format:
 
 Using the action team name from config:
 
-1. Use `mcp__linear__list_issues` with `assignee: "me"`, `team: "{action_team}"`, `state: "In Progress"` — show all in-progress tasks
-2. Use `mcp__linear__list_issues` with `assignee: "me"`, `team: "{action_team}"`, `state: "Todo"` — show all todo tasks
-3. Use `mcp__linear__list_issues` with `assignee: "me"`, `team: "{action_team}"`, `state: "Backlog"` — check for any with today's due date
+1. Use `mcp__linear__list_issues` with `assignee: "me"`, `teamId: "{action_team_id}"`, `state: "In Progress"` — show all in-progress tasks
+2. Use `mcp__linear__list_issues` with `assignee: "me"`, `teamId: "{action_team_id}"`, `state: "Todo"` — show all todo tasks
+3. Use `mcp__linear__list_issues` with `assignee: "me"`, `teamId: "{action_team_id}"`, `state: "Backlog"` — check for any with today's due date
 4. From all results, separate into:
    - **Tasks due today** — due date matches today
    - **Overdue tasks** — due date is before today
@@ -71,8 +80,8 @@ Read the meaningful count (default 3) and light count (default 2) from `config.r
 
 Show the tasks planned last night for today:
 
-1. Use `mcp__linear__list_issues` with `team: "{action_team}"`, `assignee: "me"`, `label: "{meaningful_label}"` — filter to tasks with due date = today
-2. Use `mcp__linear__list_issues` with `team: "{action_team}"`, `assignee: "me"`, `label: "{light_label}"` — filter to tasks with due date = today
+1. Use `mcp__linear__list_issues` with `teamId: "{action_team_id}"`, `assignee: "me"`, `label: "{meaningful_label}"` — filter to tasks with due date = today
+2. Use `mcp__linear__list_issues` with `teamId: "{action_team_id}"`, `assignee: "me"`, `label: "{light_label}"` — filter to tasks with due date = today
 3. Display:
    ```
    ### Today's {meaningful_count}+{light_count}
@@ -95,7 +104,7 @@ Show the tasks planned last night for today:
 7. If no meaningful or light tasks exist for today (system was not used last night), note: "No {meaningful_count}+{light_count} was planned last night. Want to plan now?" — if yes, suggest tasks using the same logic as good-night Step 8
 
 **Monday bonus:** On Mondays, also surface ALL parking lot items:
-1. Use `mcp__linear__list_issues` with `team: "{action_team}"`, `label: "{parking_lot_label}"`, `state: "Backlog"`
+1. Use `mcp__linear__list_issues` with `teamId: "{action_team_id}"`, `label: "{parking_lot_label}"`, `state: "Backlog"`
 2. Display full parking lot table
 3. Ask: "Weekly parking lot review — which to promote, drop, or keep?"
 
@@ -118,9 +127,9 @@ Only show ONE nudge per session (pick the first empty one). Stop nudging once al
 
 Using the pipeline team name and pipeline stages from config:
 
-1. Use `mcp__linear__list_issues` with `team: "{pipeline_team}"`, `state: "POC"` — active POCs (only if "POC" is in pipeline_stages)
-2. Use `mcp__linear__list_issues` with `team: "{pipeline_team}"`, `state: "Agreement"` — deals in agreement (only if "Agreement" is in pipeline_stages)
-3. Use `mcp__linear__list_issues` with `team: "{pipeline_team}"`, `state: "Demo Scheduled"` — upcoming demos (only if "Demo Scheduled" is in pipeline_stages)
+1. Use `mcp__linear__list_issues` with `teamId: "{pipeline_team_id}"`, `state: "POC"` — active POCs (only if "POC" is in pipeline_stages)
+2. Use `mcp__linear__list_issues` with `teamId: "{pipeline_team_id}"`, `state: "Agreement"` — deals in agreement (only if "Agreement" is in pipeline_stages)
+3. Use `mcp__linear__list_issues` with `teamId: "{pipeline_team_id}"`, `state: "Demo Scheduled"` — upcoming demos (only if "Demo Scheduled" is in pipeline_stages)
 4. If none of those specific stages exist in config, query the last 3 stages before "Closed Won" in the pipeline_stages list
 5. Format as: `| Deal | Stage | Owner | Next Action |`
 6. For each deal, note any pending action team follow-up tasks
@@ -142,13 +151,13 @@ Find the SDR team member(s) from config. Use their `linear_user_id` for assignme
 3. List specific names for any flagged issues
 
 **SDR daily task check:**
-1. Use `mcp__linear__list_issues` with `assignee: "{sdr_linear_user_id}"`, `team: "{action_team}"`, `state: "Backlog"` or `state: "Todo"`
+1. Use `mcp__linear__list_issues` with `assignee: "{sdr_linear_user_id}"`, `teamId: "{action_team_id}"`, `state: "Backlog"` or `state: "Todo"`
 2. Check if there is already a task for today's outreach (title contains today's date or "daily outreach" with today's due date)
 3. If NOT, create one:
    ```
    mcp__linear__save_issue:
      title: "Daily outreach — reach out to 5 new profiles ({today's date})"
-     team: "{action_team}"
+     teamId: "{action_team_id}"
      assignee: "{sdr_linear_user_id}"
      labels: ["{default_label}"]
      state: "Backlog"
@@ -164,7 +173,7 @@ Find the SDR team member(s) from config. Use their `linear_user_id` for assignme
 
 ### Step 5: Follow-ups due (full mode only)
 
-1. Use `mcp__linear__list_issues` with `team: "{action_team}"`, `assignee: "me"`, `label: "{default_label}"` — check due dates
+1. Use `mcp__linear__list_issues` with `teamId: "{action_team_id}"`, `assignee: "me"`, `label: "{default_label}"` — check due dates
 2. Filter to tasks due today or overdue
 3. Format as: `| Follow-up | Lead | Due | Status |`
 

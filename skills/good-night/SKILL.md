@@ -35,6 +35,15 @@ Parse the argument (if any) from `$ARGUMENTS` to determine mode:
 
 Identify the **default assignee** = the team member with `is_default_assignee: true`.
 
+**Resolve Linear team IDs (required):** Some Linear MCP servers (e.g., `linear-mcp-server`) hang indefinitely when issue searches are made without a `teamId`. Before any issue query:
+
+1. Call `mcp__linear__list_teams` once
+2. Match `action_team` and `pipeline_team` names to their UUIDs
+3. Store them as `{action_team_id}` and `{pipeline_team_id}` for the rest of the session
+4. If either name cannot be matched, surface a clear error and stop — do not run unscoped Linear searches
+
+Every Linear issue query below MUST include `teamId` (the UUID). The `team` name parameter is kept for readability but is not a substitute.
+
 ### Step 1: Get today's date and timezone
 
 Use `mcp__google-workspace__time_getCurrentDate` to get today's date and timezone.
@@ -73,8 +82,8 @@ Read the ritual settings from config. Use the label names for meaningful and lig
 
 Before listing completed tasks, check how today's planned tasks went:
 
-1. Use `mcp__linear__list_issues` with `team: "{action_team}"`, `assignee: "me"`, `label: "{meaningful_label}"` — filter to tasks with due date = today
-2. Use `mcp__linear__list_issues` with `team: "{action_team}"`, `assignee: "me"`, `label: "{light_label}"` — filter to tasks with due date = today
+1. Use `mcp__linear__list_issues` with `teamId: "{action_team_id}"`, `assignee: "me"`, `label: "{meaningful_label}"` — filter to tasks with due date = today
+2. Use `mcp__linear__list_issues` with `teamId: "{action_team_id}"`, `assignee: "me"`, `label: "{light_label}"` — filter to tasks with due date = today
 3. For each, check if state is "Done"
 4. Display:
    ```
@@ -107,14 +116,14 @@ If no meaningful or light tasks exist for today (system was not used last night)
 
 ### Step 3b: Tasks completed today (skip in --calls mode)
 
-1. Use `mcp__linear__list_issues` with `assignee: "me"`, `team: "{action_team}"`, `state: "Done"`, `updatedAt: "-P1D"` — tasks completed recently
+1. Use `mcp__linear__list_issues` with `assignee: "me"`, `teamId: "{action_team_id}"`, `state: "Done"`, `updatedAt: "-P1D"` — tasks completed recently
 2. Filter to tasks whose completion happened today (check updatedAt)
 3. Format as: `| Task | Priority | Completed |`
 
 ### Step 4: Tasks still open (skip in --calls mode)
 
-1. Use `mcp__linear__list_issues` with `assignee: "me"`, `team: "{action_team}"`, `state: "In Progress"` — still open
-2. Use `mcp__linear__list_issues` with `assignee: "me"`, `team: "{action_team}"`, `state: "Todo"` — not started
+1. Use `mcp__linear__list_issues` with `assignee: "me"`, `teamId: "{action_team_id}"`, `state: "In Progress"` — still open
+2. Use `mcp__linear__list_issues` with `assignee: "me"`, `teamId: "{action_team_id}"`, `state: "Todo"` — not started
 3. Identify tasks that were due today but not completed
 4. For uncompleted tasks, suggest new due dates (tomorrow or next business day)
 5. Ask: "Want me to update the due dates for incomplete tasks?"
@@ -155,7 +164,7 @@ Rules for the EOD message:
 ### Step 7: Tomorrow preview (skip in --calls mode)
 
 1. If Google Workspace MCP is available: use `mcp__google-workspace__calendar_listEvents` with `calendarId: "primary"`, `timeMin` = start of tomorrow, `timeMax` = end of tomorrow
-2. Use `mcp__linear__list_issues` with `assignee: "me"`, `team: "{action_team}"` — filter to tasks due tomorrow
+2. Use `mcp__linear__list_issues` with `assignee: "me"`, `teamId: "{action_team_id}"` — filter to tasks due tomorrow
 3. Format as:
    ```
    ### Tomorrow — {date}
@@ -177,7 +186,7 @@ Plan tomorrow's meaningful and light tasks using data already gathered:
    - Tomorrow's calendar (from Step 7)
    - Open action team tasks — In Progress, Todo, Backlog (from Step 4)
    - Pipeline deals needing action (from context)
-   - Parking lot items: `mcp__linear__list_issues` with `team: "{action_team}"`, `label: "{parking_lot_label}"`, `state: "Backlog"`
+   - Parking lot items: `mcp__linear__list_issues` with `teamId: "{action_team_id}"`, `label: "{parking_lot_label}"`, `state: "Backlog"`
 
 2. **Surface parking lot** — show top 5 items sorted by priority then age (oldest first):
    ```
