@@ -1,0 +1,16 @@
+name: Auto-assign new issues
+on:
+  issues:
+    types: [opened]
+permissions:
+  issues: write
+jobs:
+  assign:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Assign new issue to himanshusaleria
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          NUMBER: ${{ github.event.issue.number }}
+        run: gh issue edit "$NUMBER" --add-assignee himanshusaleria
