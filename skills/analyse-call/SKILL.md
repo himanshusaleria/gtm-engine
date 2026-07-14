@@ -42,6 +42,10 @@ Available frameworks (read each that exists):
 - `frameworks/selling-window.md` (Selling Window / Org Pain Stages)
 - `frameworks/pain-discovery.md` (Pain Discovery / SPIN Selling)
 - `frameworks/sales-playbook.md` (Sales Playbook / 7-Stage Deal Checklist)
+- `frameworks/consequence-questions.md` (Consequence Questions / Quantified Discovery)
+- `frameworks/buyer-readiness.md` (Buyer Readiness / Actions vs Words)
+- `frameworks/category-language.md` (Category Language / Default Filter)
+- `frameworks/revenue-visibility.md` (Revenue Visibility / Cash-Flow Scoring)
 
 Also read user context if available:
 - `my-context/icp-definition.md` (user's ICP details)
@@ -121,6 +125,33 @@ For each available framework with real content, analyse the call. Use as many of
 - Which of the 7 stages has this deal completed? Research / Outreach / Discovery / Demo / Proof / Close / Handoff
 - Checklist of exit criteria met vs remaining for the current stage.
 - What's the next stage and what needs to happen to get there?
+
+#### K. Consequence Question Discipline
+(Requires `consequence-questions.md`)
+- Which Operating Questions (baseline: how they work today) were asked? Which Consequence Questions (quantification: what it costs)?
+- Did the prospect say a pain number OUT LOUD in their own words? Quote it if so.
+- Where did the team get an operating answer and pitch instead of asking the consequence question?
+- Were Consequence Questions directed at someone who can actually feel the cost (pain owner), or at an evaluator?
+- Any "you'd have to ask X for that number" moments? (Those are stakeholder-expansion levers — flag them.)
+
+#### L. Buyer Readiness Diagnosis
+(Requires `buyer-readiness.md`)
+- Score the buyer's behavioral signals: time invested / effort invested / money signals / quality of problem definition.
+- Which journey stage does the BEHAVIOR put them at? (Awareness / Interest / Consideration / Purchase) — versus what their WORDS claimed.
+- Which readiness type are they? (Emotionally ready / Intellectually ready / Champion needing ammunition / Conceptually aware without urgency / Curious not pained)
+- Is the team's response mode matched to that type? What's the prescribed mode?
+
+#### M. Category Language Check
+(Requires `category-language.md`)
+- Did the team introduce themselves with a distinctive term or a generic category label?
+- Did the prospect ask "what do you mean by that?" at any point — or auto-categorize ("so you're like [competitor]")?
+- If the prospect filed the product under an existing category, what filter did it trigger and how could the intro have avoided it?
+
+#### N. Revenue Visibility Score
+(Requires `revenue-visibility.md`)
+- Based on this call's evidence, what visibility score (1-5) does this opportunity deserve? (Words never move it past 2 — only actions do.)
+- Did the score go up, down, or stay flat versus before the call?
+- What is the single visibility-raising action for this deal this week?
 
 ### Step 4: What Went Right / Wrong
 

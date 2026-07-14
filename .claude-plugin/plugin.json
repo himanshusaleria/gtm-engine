@@ -1,0 +1,23 @@
+{
+  "name": "gtm-engine",
+  "displayName": "GTM Engine",
+  "version": "1.2.0",
+  "description": "Turns Claude Code into your sales team — 8 slash-command skills for pipeline tracking, daily rituals, call analysis, lead scoring, and cold outreach. Built for 0-to-1 founders.",
+  "author": {
+    "name": "Himanshu Saleria",
+    "url": "https://github.com/himanshusaleria"
+  },
+  "homepage": "https://github.com/himanshusaleria/gtm-engine",
+  "repository": "https://github.com/himanshusaleria/gtm-engine",
+  "license": "MIT",
+  "keywords": [
+    "sales",
+    "gtm",
+    "go-to-market",
+    "cold-email",
+    "pipeline",
+    "founders",
+    "crm",
+    "linear"
+  ]
+}

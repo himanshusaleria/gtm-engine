@@ -20,7 +20,7 @@ Built for 0-to-1 founders doing sales for the first time.
 | `/setup` | Onboarding | Interactive wizard: company context → Linear CRM → ICP definition → persona mapping → messaging |
 | `/good-morning` | Chief of Staff | Daily briefing: calendar, pipeline, tasks, 3+2 plan, team audit, overdue alerts |
 | `/good-night` | Chief of Staff | EOD wrap-up: score today's tasks, sync call recordings, plan tomorrow's 3+2, draft EOD message |
-| `/analyse-call` | Sales Coach | Apply 11 frameworks to any call transcript — positioning, commitment scoring, discovery quality, next steps |
+| `/analyse-call` | Sales Coach | Apply 15 frameworks to any call transcript — positioning, commitment scoring, discovery quality, next steps |
 | `/validate-lead` | Research Analyst | Score any company against your ICP in 30 seconds — web research, no-go rules, tier classification |
 | `/cold-email` | Outreach Writer | Signal-based cold emails that lead with pain, not features. Gets better with every feedback loop. |
 | `/whats-new` | Release Manager | After `git pull`, shows what changed and offers to update your skills |
@@ -73,7 +73,21 @@ The 3+2 daily system forces intentionality. Every night you pick 3 meaningful ta
 
 ## Installation
 
-### Step 1: Clone and install skills
+### Option A: Install as a Claude Code plugin (recommended)
+
+```
+/plugin marketplace add himanshusaleria/gtm-engine
+/plugin install gtm-engine@gtm-engine-marketplace
+```
+
+Skills are then invoked with the plugin prefix (e.g. `/gtm-engine:good-morning`). You still need a local clone for your config, frameworks, and context files:
+
+```bash
+git clone https://github.com/himanshusaleria/gtm-engine.git
+cd gtm-engine
+```
+
+### Option B: Clone and copy skills manually
 
 ```bash
 git clone https://github.com/himanshusaleria/gtm-engine.git
@@ -225,7 +239,7 @@ Fetches calls from your configured call recording provider (Fathom, Fireflies, e
 
 ## Frameworks
 
-Eleven sales frameworks covering the full sales cycle — from finding prospects to closing deals.
+Fifteen sales frameworks covering the full sales cycle — from finding prospects to closing deals.
 
 | Framework | What It Teaches |
 |-----------|----------------|
@@ -240,6 +254,10 @@ Eleven sales frameworks covering the full sales cycle — from finding prospects
 | **[Selling Window](frameworks/selling-window.md)** | Five stages of org pain awareness. Time your outreach to when the window is open. |
 | **[Pain Discovery](frameworks/pain-discovery.md)** | SPIN Selling — Situation, Problem, Implication, Need-payoff questions that surface real pain. |
 | **[Sales Playbook](frameworks/sales-playbook.md)** | Seven-stage founder's deal checklist: Research → Outreach → Discovery → Demo → Proof → Close → Handoff. |
+| **[Consequence Questions](frameworks/consequence-questions.md)** | Discovery that quantifies pain. Baseline how they operate, then let the prospect say the cost out loud. |
+| **[Buyer Readiness](frameworks/buyer-readiness.md)** | Read buyer actions, not words. Diagnose the real journey stage and match your response mode to it. |
+| **[Category Language](frameworks/category-language.md)** | Bypass the prospect's default filter with a distinctive term for what you do — earn "what do you mean by that?" |
+| **[Revenue Visibility](frameworks/revenue-visibility.md)** | One sheet between you and cash-flow panic. Score every deal 1-5 on evidence that the money will actually arrive. |
 
 Each framework includes: what it is, why it matters, the model, how to apply it, a workshop to build yours, a generic example, connections to other frameworks, and anti-patterns.
 

@@ -1,0 +1,15 @@
+{
+  "name": "gtm-engine-marketplace",
+  "description": "GTM Engine — Claude Code as a founder's full sales team: skills for pipeline tracking, daily rituals, call analysis, lead scoring, and cold outreach.",
+  "owner": {
+    "name": "Himanshu Saleria",
+    "url": "https://github.com/himanshusaleria"
+  },
+  "plugins": [
+    {
+      "name": "gtm-engine",
+      "source": "./",
+      "description": "Turns Claude Code into your sales team — 8 slash-command skills for pipeline tracking, daily rituals, call analysis, lead scoring, and cold outreach. Built for 0-to-1 founders."
+    }
+  ]
+}

@@ -8,7 +8,7 @@ Frameworks aren't just reference docs — they're actively used by skills:
 
 | Skill | Frameworks Used |
 |-------|----------------|
-| `/analyse-call` | All 11 frameworks applied to call transcripts |
+| `/analyse-call` | All 15 frameworks applied to call transcripts |
 | `/validate-lead` | Customer Profile (ICP) for scoring |
 | `/cold-email` | Messaging Structure for email writing |
 | `/good-morning` | Pipeline Scorecard for deal status |
@@ -72,16 +72,30 @@ Three tiers of how prospects perceive your product: Vitamin (nice-to-have) → P
 
 **Use when:** After every prospect interaction — are you selling a vitamin or a painkiller? During call analysis to spot feature-dumping moments.
 
+#### 8. Consequence Questions
+**File:** `frameworks/consequence-questions.md`
+
+Two-question discovery discipline: Operating Questions baseline how the prospect works today; Consequence Questions turn those answers into a cost the buyer quantifies themselves — in time, effort, money, or quality. The buyer should say the pain number out loud.
+
+**Use when:** Preparing discovery calls, building your question bank from won/lost deals, reviewing calls for pitch-too-early moments.
+
+#### 9. Category Language
+**File:** `frameworks/category-language.md`
+
+A distinctive term for what you do that bypasses the prospect's default filter and earns the question "what do you mean by that?" — instead of being auto-filed under a category they've already dismissed.
+
+**Use when:** Writing your LinkedIn headline, cold email openers, and 10-second intro. Whenever prospects respond with "so you're like [competitor]."
+
 ### Assessment (evaluating deals and pipeline)
 
-#### 8. Pipeline Scorecard
+#### 10. Pipeline Scorecard
 **File:** `frameworks/pipeline-scorecard.md`
 
 Objective scoring system for where each prospect stands. Separates words from actions.
 
 **Use when:** Pipeline reviews, deciding where to invest time, forecasting.
 
-#### 9. Prospect Qualification (BANT)
+#### 11. Prospect Qualification (BANT)
 **File:** `frameworks/prospect-qualification.md`
 **Based on:** IBM's BANT methodology (widely public)
 
@@ -89,16 +103,30 @@ Score prospects on Budget, Authority, Need, and Timeline — each rated 1-3. Tot
 
 **Use when:** After discovery calls to decide if a deal is worth pursuing. During pipeline reviews to prioritize.
 
-#### 10. Selling Window
+#### 12. Selling Window
 **File:** `frameworks/selling-window.md`
 
 Five stages of organizational pain awareness: Unaware → Annoyed → Hurting → Desperate → Solved. The sweet spot is "Hurting" — they feel it, they're looking, they haven't committed to a competitor yet.
 
 **Use when:** Before engaging any prospect — is the org ready? Helps you time outreach for maximum impact and avoid wasting time on Unaware or Solved orgs.
 
+#### 13. Buyer Readiness
+**File:** `frameworks/buyer-readiness.md`
+
+Diagnose where a buyer actually is (Awareness → Interest → Consideration → Purchase) from what they invest — time, effort, money, quality of problem definition — not what they say. Five readiness types, each with a prescribed response mode.
+
+**Use when:** After every touchpoint. Before sending any proposal — has the buyer's behavior earned it, or just their words?
+
+#### 14. Revenue Visibility
+**File:** `frameworks/revenue-visibility.md`
+
+One sheet, one row per opportunity, a 1-5 visibility score per row driven by buyer actions, and a named visibility-raising action for every row. Clarity, visibility, and predictability for your cash flow.
+
+**Use when:** Weekly pipeline review. Monthly target-setting. Any time you catch yourself saying "we have $X in the pipeline" without evidence.
+
 ### Operations (running the full deal cycle)
 
-#### 11. Sales Playbook
+#### 15. Sales Playbook
 **File:** `frameworks/sales-playbook.md`
 
 Seven-stage deal checklist: Research → Outreach → Discovery → Demo → Proof → Close → Handoff. Each stage has objectives, key activities, exit criteria, and common mistakes.
@@ -146,6 +174,16 @@ Each framework document follows this structure:
 - Identify which exit criteria are unmet for each deal
 - Build your own question bank, demo flow, and POC template
 
+**Week 7:** Consequence Questions + Buyer Readiness
+- Build your Operating/Consequence question bank from your last 10 deals
+- Re-diagnose every active prospect: what does their behavior (not their words) say about their stage?
+- On your next 3 discovery calls: baseline first, quantify second, never pitch in between
+
+**Week 8:** Category Language + Revenue Visibility
+- Draft 5 category-term candidates and test them in real conversations
+- Build your revenue visibility sheet — one row per opportunity, scored on action evidence
+- Put the weekly visibility review in your calendar
+
 ## Customizing Frameworks
 
 Frameworks are in the `frameworks/` directory and tracked by git. To customize:
@@ -179,4 +217,14 @@ Messaging Structure ──→ /cold-email (email structure)
         └──→ Pipeline Scorecard (are they responding to your messaging?)
 
 Sales Playbook ──→ All frameworks (each stage uses specific frameworks)
+
+Consequence Questions ──→ Positioning Levels (quantified pain moves vitamin → painkiller)
+        │
+        └──→ Revenue Visibility (unquantified pain = deals stuck at visibility 2)
+
+Buyer Readiness ──→ Selling Window (org stage + individual stage = full diagnosis)
+        │
+        └──→ Pipeline Scorecard (same actions-over-words evidence, per person)
+
+Category Language ──→ Messaging Structure (the compressed, curiosity-first version of your outcome)
 ```
