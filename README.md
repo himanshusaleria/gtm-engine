@@ -206,7 +206,7 @@ Reads your company overview, persona pain map, and objection playbook. Writes em
 - 4-6 sentences, soft CTA, easy out
 - Never say "AI-powered", "game-changer", "leverage", or "synergy"
 
-Sequence mode generates 4 emails: signal-based first touch (Day 0), value-add follow-up (Day 3), different angle (Day 7), breakup (Day 14).
+Sequence mode generates 4 emails: signal-based first touch (Day 0), reply-bait nudge (Day 3), value-add from a different angle (Day 8), breakup (Day 13). Follow-up discipline is built in: due follow-ups beat new sends, ~5 new sends/day cap, one active thread per company.
 
 **Self-improving:** Feedback on tone, what got replies, what bombed — all saved and applied next time.
 

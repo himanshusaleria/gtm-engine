@@ -13,6 +13,9 @@ All notable changes to the GTM Engine will be documented in this file.
 
 ### Changed
 - `/analyse-call` gains four new analysis sections (K: Consequence Question Discipline, L: Buyer Readiness Diagnosis, M: Category Language Check, N: Revenue Visibility Score)
+- `/cold-email` outreach workflow updated: new Outreach Discipline rules (due follow-ups beat new sends, ~5 new sends/day cap, one active thread per company, never fabricate), sequence cadence revised to Day 0 → Day 3 reply-bait → Day 8 value-add → Day 13 breakup, no-em-dash rule, optional LinkedIn lane (noteless connection request, DM after accept)
+- `/good-morning` priority order makes the follow-ups-before-new-sends rule explicit
+- Sales Playbook outreach stage updated to the same follow-up cadence
 - Framework guide extended to 15 frameworks with an 8-week learning path
 - Bumped version to 1.2.0
 

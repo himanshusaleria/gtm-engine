@@ -92,6 +92,7 @@ These are non-negotiable. Every email must follow these:
 - Conversational, not corporate. Write like a human, not a marketing team.
 - Use "I" not "we"
 - No emojis. No exclamation marks.
+- No em dashes in the email copy — use commas, colons, or periods. (Em dashes are the single most recognizable tell of AI-written outreach.)
 - Short paragraphs — 1-2 sentences each
 - Total length: 4-6 sentences for first cold touch
 
@@ -117,16 +118,27 @@ These are non-negotiable. Every email must follow these:
 - Reference their situation, not your product
 - No clickbait, no questions in subject lines for first touch
 
+### Outreach Discipline
+
+Rules for running outreach as a system, not one-off emails:
+
+- **Due follow-ups beat new sends.** Before writing new cold emails, clear the follow-ups that are due. A warm thread you let go cold costs more than a new send gains.
+- **Cap new sends.** Default: ~5 NEW cold emails per day (follow-ups are uncapped). Small daily batches keep quality high and make reply patterns readable.
+- **One company, one thread.** One active contact per company at a time. If they're silent for ~3 days past a due follow-up, start a fresh thread with a backup contact — don't run two parallel threads into the same org.
+- **Never fabricate.** No invented URLs, metrics, customer names, or quotes — ever. If you don't have a real number, write the email without one.
+
 ## Sequence Mode (`--sequence`)
 
-When `--sequence` is used, generate 3-4 emails:
+When `--sequence` is used, generate 4 emails:
 
 1. **Email 1 (Day 0):** Signal-based first touch. Lead with pain. 4-6 sentences.
-2. **Email 2 (Day 3-4):** Value-add follow-up. Share a relevant insight, stat, or anonymized customer story. Not "just following up." 3-5 sentences.
-3. **Email 3 (Day 7-8):** Different angle. Try a different pain point or persona angle. 3-5 sentences.
-4. **Email 4 (Day 12-14, optional):** Breakup email. Light, gives an easy out, leaves door open. 2-3 sentences.
+2. **Email 2 (Day 3):** Reply-bait nudge. Short — 1-2 sentences designed to make replying effortless (a light question, a "did this land with the right person?"). Not a value dump, not "just following up."
+3. **Email 3 (Day 8):** Value-add. Share a relevant insight, stat, or anonymized customer story — ideally from a different pain angle than Email 1. 3-5 sentences.
+4. **Email 4 (Day 13):** Breakup email. Light, gives an easy out, leaves door open. 2-3 sentences.
 
-Each email should have its own subject line. Label each with the day and purpose.
+Each email should have its own subject line (follow-ups can reply in-thread with no new subject). Label each with the day and purpose.
+
+**Optional LinkedIn lane:** if the user works LinkedIn alongside email, suggest a connection request WITHOUT a note around Day 0-3 (noteless requests convert better), and a short DM only after they accept.
 
 ## Improve Mode (`--improve`)
 
