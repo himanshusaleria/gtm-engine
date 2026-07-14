@@ -17,6 +17,10 @@ A collection of practical sales frameworks for B2B founders going from 0 to 1. E
 | **Selling Window** | [selling-window.md](selling-window.md) | Before engaging any prospect. Reading the org's pain awareness stage to time your outreach for maximum impact. |
 | **Pain Discovery** | [pain-discovery.md](pain-discovery.md) | During discovery calls. Using SPIN questions to surface real pain, quantify its cost, and create urgency. |
 | **Sales Playbook** | [sales-playbook.md](sales-playbook.md) | Managing every deal end-to-end. Seven-stage checklist from research to close to handoff. |
+| **Consequence Questions** | [consequence-questions.md](consequence-questions.md) | Structuring discovery calls. Two-question discipline: baseline how they operate, then make the prospect quantify the cost themselves. |
+| **Buyer Readiness** | [buyer-readiness.md](buyer-readiness.md) | After every touchpoint. Diagnosing the buyer's actual journey stage from invested time/effort/money — and matching your response mode to it. |
+| **Category Language** | [category-language.md](category-language.md) | Positioning and outreach. Creating a distinctive term for what you do so prospects get curious instead of auto-dismissing you. |
+| **Revenue Visibility** | [revenue-visibility.md](revenue-visibility.md) | Weekly cash-flow review. One sheet scoring how likely each deal's money is to actually arrive, driven by buyer actions. |
 
 ## How to Use These Frameworks
 
@@ -38,6 +42,12 @@ A collection of practical sales frameworks for B2B founders going from 0 to 1. E
 3. Use **Selling Window** to time your outreach to org pain stages
 4. Cross-reference **Intent Signals** with **Pipeline Scorecard** — do strong signals predict strong commitment?
 5. A/B test **Messaging Structure** variations for different personas and pyramid tiers
+
+### If you're scaling what works
+1. Build your **Consequence Questions** bank from won/lost deal reviews
+2. Use **Buyer Readiness** to stop sending proposals to window-shoppers
+3. Develop your **Category Language** — one distinctive term, tested until it earns "what do you mean by that?"
+4. Run **Revenue Visibility** weekly — every action you take should raise a visibility score
 
 ## Framework Structure
 

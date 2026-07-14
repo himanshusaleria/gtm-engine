@@ -80,7 +80,8 @@ A playbook doesn't make sales formulaic — it makes it repeatable. You still ne
 - Lead with their pain or a relevant signal — not your product
 - Keep it short: 4-6 sentences for cold email
 - Include a soft CTA: "Worth a 15-min chat?" not "Book a demo with us"
-- Plan your follow-up sequence: Day 0, Day 3, Day 7, Day 14
+- Plan your follow-up sequence: Day 0 (first touch), Day 3 (reply-bait nudge), Day 8 (value-add), Day 13 (breakup)
+- Due follow-ups always beat new sends; keep one active thread per company
 
 **Exit Criteria:**
 - [ ] Prospect has replied (positively or with questions)

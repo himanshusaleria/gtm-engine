@@ -184,7 +184,7 @@ Based on all gathered data, suggest a priority-ordered list:
 2. Calendar meetings that need prep
 3. Active deal follow-ups (late pipeline stages)
 4. Tasks due today
-5. New outreach/prospecting
+5. New outreach/prospecting — only after due follow-ups are cleared (due follow-ups beat new sends)
 
 ## Output Format
 
